@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getter</title>
+</head>
+<body>
+	<script>
+		var book = {
+			_year : 2004,
+			edition:1
+		}
+		Object.defineProperty(book,"_year",{
+			get:function(){
+				return this._year
+			},
+			set:function(newValue) {
+				this._year = newValue;
+				this.edition = this.edition + 1;
+			}
+		})
+	</script>	
+</body>
+</html>

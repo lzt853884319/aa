@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>callee+caller</title>
+	<script src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<span id="aaa">11111111</span>
+	<p id="p1" onmousedown="getEventTrigger(1111,2)">
+		Click on this paragraph. An alert box will
+		show which element triggered the event.
+	</p>
+	<script>
+	var a = 1;
+		function outer(event,b) {
+			 // x=event.target; 
+			  console.log(event)
+		}
+		function inner() {
+			console.log(arguments.callee.caller)
+			console.log(event)
+		}
+		function getEventTrigger(event)
+		  { 
+			  x=event.target; 
+			  console.log(event)
+			  alert("The id of the triggered element: "
+			  + x.id);
+		  }
+		 $("#aaa").on("click",function(){
+		 	// console.log(arguments[0].target);
+		 	// inner()
+		 	console.log(event)
+		 })
+	</script>
+</body>
+</html>

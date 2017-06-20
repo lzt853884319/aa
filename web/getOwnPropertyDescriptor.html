@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getter</title>
+</head>
+<body>
+	<script>
+		var book = {
+
+		}
+		Object.defineProperties(book,{
+			_year:{
+				value:2004,
+				configurable:true,
+				// writable:true
+			},
+			edition: {
+				value :1
+			},
+			year: {
+				get:function(){
+					return this._year
+				},
+				set:function(newValue) {
+					this._year = newValue;
+					this.edition = this.edition + 1;
+				}
+			}
+			
+		})
+		var descriptor = Object.getOwnPropertyDescriptor(book,"_year");
+		descriptor.configurable // false
+	</script>	
+</body>
+</html>
